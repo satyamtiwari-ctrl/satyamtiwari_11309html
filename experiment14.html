@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation using JavaScript</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 6px;
+            width: 250px;
+        }
+        button {
+            padding: 6px 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>HTML Form Validation using JavaScript</h2>
+
+    <form onsubmit="return validateForm()">
+        <label>
+            Name:
+            <br>
+            <input type="text" id="name" oninput="checkName()">
+        </label>
+        <br><br>
+
+        <label>
+            Email:
+            <br>
+            <input type="text" id="email">
+        </label>
+        <br><br>
+
+        <label>
+            Password:
+            <br>
+            <input type="password" id="password">
+        </label>
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // oninput event validation
+        function checkName() {
+            let name = document.getElementById("name").value;
+            if (name.length < 3) {
+                console.log("Name must have at least 3 characters");
+            }
+        }
+
+        // onsubmit event validation
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if (name === "") {
+                alert("Name cannot be empty");
+                return false;
+            }
+
+            if (email === "") {
+                alert("Email cannot be empty");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>

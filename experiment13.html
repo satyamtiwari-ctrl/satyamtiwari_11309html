@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Defined Functions and Scope</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .output {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>User Defined Functions & Scope Demo</h2>
+    <button onclick="runDemo()">Run Program</button>
+
+    <div id="output" class="output"></div>
+
+    <script>
+        // User-defined function (Function Declaration)
+        function greet(name) {
+            return "Hello, " + name;
+        }
+
+        // User-defined function (Arrow Function)
+        const multiply = (a, b) => a * b;
+
+        // Scope demonstration function
+        function scopeDemo() {
+            let message = "";
+
+            if (true) {
+                var x = 10;      // function scope
+                let y = 20;      // block scope
+                const z = 30;    // block scope
+
+                message += "Inside block:\n";
+                message += "var x = " + x + "\n";
+                message += "let y = " + y + "\n";
+                message += "const z = " + z + "\n\n";
+            }
+
+            message += "Outside block:\n";
+            message += "var x = " + x + "\n";
+
+            try {
+                message += "let y = " + y + "\n";
+            } catch {
+                message += "let y is not accessible outside block\n";
+            }
+
+            try {
+                message += "const z = " + z + "\n";
+            } catch {
+                message += "const z is not accessible outside block\n";
+            }
+
+            return message;
+        }
+
+        // Main function
+        function runDemo() {
+            let result = "";
+
+            result += greet("Student") + "\n\n";
+            result += "Multiplication (4 × 5): " + multiply(4, 5) + "\n\n";
+            result += scopeDemo();
+
+            document.getElementById("output").textContent = result;
+        }
+    </script>
+
+</body>
+</html>
