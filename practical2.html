@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Grocery Shop</title>
+   <style>/* Universal Selector */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* Header */
+header {
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Shop Layout using Flexbox */
+.shop {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+/* Product Card (Box Model) */
+.product {
+    background-color: white;
+    padding: 20px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+    text-align: center;
+}
+
+/* Button Styling */
+button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: orange;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Hover Effect */
+button:hover {
+    background-color: darkorange;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .shop {
+        flex-direction: column;
+        align-items: center;
+    }
+}</style>
+</head>
+<body>
+
+<header>
+    <h1>Fresh Grocery Store</h1>
+</header>
+
+<section class="shop">
+    <div class="product">
+        <h2>Rice</h2>
+        <p>Price: ₹60/kg</p>
+        <button>Buy Now</button>
+    </div>
+
+    <div class="product">
+        <h2>Milk</h2>
+        <p>Price: ₹50/litre</p>
+        <button>Buy Now</button>
+    </div>
+
+    <div class="product">
+        <h2>Wheat</h2>
+        <p>Price: ₹45/kg</p>
+        <button>Buy Now</button>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Grocery Shop</p>
+</footer>
+
+</body>
+</html>

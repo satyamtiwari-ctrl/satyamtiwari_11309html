@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Shop</title>
+  <style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+#products {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    width: 180px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+
+button {
+    padding: 6px 12px;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkgreen;
+}</style>
+</head>
+<body>
+<h1>Online Shop</h1>
+<p>Cart Items: <span id="cartCount">0</span></p>
+<div id="products"></div>
+<h2>Total Price: ₹<span id="total">0</span></h2>
+<script> 
+let cartCount = 0;
+let total = 0;
+const products = [
+    { id: 1, name: "Rice", price: 60 },
+    { id: 2, name: "Mobile", price: 12000 },
+    { id: 3, name: "Book", price: 300 }
+];
+const productDiv = document.getElementById("products");
+const displayProducts = () => {
+    products.forEach(product => {
+        const div = document.createElement("div");
+        div.className = "product";
+
+        div.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>Price: ₹${product.price}</p>
+            <button onclick="addToCart(${product.price})">Add to Cart</button>
+        `;
+
+        productDiv.appendChild(div);
+    });
+};
+
+const addToCart = (price) => {
+    cartCount++;
+    total += price;
+
+    document.getElementById("cartCount").innerText = cartCount;
+    document.getElementById("total").innerText = total;
+};
+fetch("https://fakestoreapi.com/products?limit=1")
+    .then(res => res.json())
+    .then(data => {
+        products.push({
+            id: data[0].id,
+            name: data[0].title,
+            price: Math.round(data[0].price * 80)
+        });
+        displayProducts();
+    });
+displayProducts();</script>
+</body>
+</html>
