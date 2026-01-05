@@ -26,23 +26,17 @@
     <div id="output" class="output"></div>
 
     <script>
-        // User-defined function (Function Declaration)
         function greet(name) {
             return "Hello, " + name;
         }
-
-        // User-defined function (Arrow Function)
         const multiply = (a, b) => a * b;
-
-        // Scope demonstration function
         function scopeDemo() {
             let message = "";
 
             if (true) {
-                var x = 10;      // function scope
-                let y = 20;      // block scope
-                const z = 30;    // block scope
-
+                var x = 10;      
+                let y = 20;      
+                const z = 30;  
                 message += "Inside block:\n";
                 message += "var x = " + x + "\n";
                 message += "let y = " + y + "\n";
@@ -66,8 +60,6 @@
 
             return message;
         }
-
-        // Main function
         function runDemo() {
             let result = "";
 
@@ -81,3 +73,4 @@
 
 </body>
 </html>
+
